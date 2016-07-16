@@ -1,0 +1,6 @@
+Ten			Nam Sinh	Que Quan	Chuyen Nganh
+Nguyen Tan Vy		1990		Quang Ngai	Mang May Tinh
+Nguyen Van Chung	1990		HCM		Mang May Tinh
+Nguyen Anh Khoa		1990		Lam Dong	Mang May Tinh
+Huynh Thanh Khai	1990		HCM		Mang May Tinh
+Phan Gia Tung		1990		HCM		Mang May Tinh		

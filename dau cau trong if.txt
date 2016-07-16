@@ -1,0 +1,3 @@
+Doi voi so thi dung -eq, -lt, gt
+Doi voi string thi dung dau = (==)
+

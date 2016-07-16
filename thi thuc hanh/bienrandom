@@ -1,0 +1,15 @@
+#!/bin/bash
+answer="yes"
+while [ $answer != "no" ]
+do
+	a=$RANDOM
+	echo "Bien random la $a"
+	s=$(($s+$a))
+	echo "Tong la:$s"
+	read -p "Ban muon tiep tuc ko [yes] ?" answer
+
+done
+
+
+	
+	

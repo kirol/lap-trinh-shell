@@ -1,0 +1,21 @@
+#!/bin/bash
+uid=$(cat /etc/passwd | awk -F: '{print $3}')
+count=0
+rm -f /root/Desktop/souid
+for i in $uid
+do
+	if [ $i -ge 500 -a $i -lt 505 ]
+	then
+	user=$(grep $i /etc/passwd | awk -F: '{print $1}')
+	finger $user >> /root/Desktop/souid
+	let count+=1
+	fi
+done
+echo "So uid thoa man yeu cau de bai la : $count" >> /root/Desktop/souid
+
+	
+
+
+
+
+

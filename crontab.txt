@@ -1,0 +1,5 @@
+crontab -e
+30 10 * * * /home/who.sh
+
+
+Luu y trong file who.sh, duong dan den cac file text phai la duong dan tuyet doi. Vi du /home/date.txt

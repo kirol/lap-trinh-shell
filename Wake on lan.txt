@@ -1,0 +1,25 @@
+http://www.tjansson.dk/?p=83
+
+Enabling WOL tren may client:
+ethtool -s eth1 wol g
+g  Wake on MagicPacket(tm)
+
+chmod +x /etc/init.d/wol.sh
+make it executable
+
+update-rc.d -f wol.sh defaults
+execute the script on every runlevel
+
+
+Sending the magical package from Linux:
+check xem MAC address cua eth1 ma` ta da enable wol, tren may server go~ lenh sau
+
+
+wakeonlan 00:18:F3:CD:78:A0
+
+
+for MACHINE in $(cat diachiip)
+do
+ping -c 1 $MACHINE
+if [ $? -eq 0 ]
+done 

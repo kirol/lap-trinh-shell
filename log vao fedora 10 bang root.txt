@@ -1,0 +1,7 @@
+Cach log vao Fedora 10 bang tai khoan root
+
+vi /etc/pam.d/gdm
+
+Them vao dau # truoc dong sau
+
+# auth required pam_succeed_if.so user != root quiet

@@ -1,0 +1,3 @@
+The function of the ampersand is to make a command run in the background
+
+The ampersand will run the command in the background. Some commands expect terminal input, and running them in the background will cause the program to stall as it waits for input. There is a similar situation if you aren't careful starting some scripts in a cronjob. Cron will start the script, but cron is a service running in the background without an attached terminal or stderr. You need to either redirect text output to /dev/null or to a log file.

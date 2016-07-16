@@ -1,0 +1,35 @@
+scp root@192.168.146.130:/root/uptime.sh root@192.168.146.129:/root/
+
+130:server
+129: client
+Chuyen file tu server qua client
+
+http://bash.cyberciti.biz/monitoring/get-system-information-in-html-format/
+
+
+#!/bin/sh
+BOX="IP1 IP2 IP3 IP4"
+USR="jadmin"
+for ip in $BOX
+do
+echo "Server Uptime and Load @ $ip"
+ ssh $USR@$ip uptime 
+ ssh $USR@$ip w
+echo "-----------------------------------------------------------"
+done
+
+De gui mail tu server 130 den client 129
+Lay file ket abc.txt tu client ve server sau do ssh de cat file nay roi mail localhost (server)
+scp abc.txt root@192.168.146.130:/root/
+ssh root@192.168.146.129 'cat abc.txt | mail -s "abcccccc" root@localhost'
+
+Ko hieu sao cho localhost khong the thay the bang dia chi ip, muon gui mail sang may khac bang dia chi ip thi ta phai cau hinh mail server http://www.techotopia.com/index.php/Configuring_a_Fedora_Linux_Email_Server
+
+> /var/spool/mail/root : delete all mails of root 
+
+
+
+Cach lay u lieu ve may
+
+ssh root@192.168.146.129 'ls' > abc.txt
+ls thuc hien tren may 129 con abc.txt duoc tao ra tren 130

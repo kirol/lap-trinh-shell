@@ -1,0 +1,3 @@
+too many arguments: do dung truc tiep $a co' nhieu tham so. Cach giai quyet dung vong lap for i in $a
+
+cac loi invalid thuong do thieu phan ket thuc vi du : done, fi

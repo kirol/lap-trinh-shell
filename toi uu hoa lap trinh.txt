@@ -1,0 +1,3 @@
+Neu dung vong for thi` no' se di 1 vong tu tren xuong duoi
+Neu dung read line thi no' den dong nao thoa man dieu kien thi se lap tuc xu ly dong do'
+Do do' cach dung read line hieu qua hon

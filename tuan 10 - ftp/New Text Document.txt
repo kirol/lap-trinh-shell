@@ -1,0 +1,34 @@
+ftp -i -v -n 192.168.146.134 
+name anonymous
+password
+get
+mget *
+
+
+ftp server chua du lieu trong /var/ftp/ 
+
+KHi tu client ftp den server thi no' se vao trong /var/ftp/
+
+
+Neu khi ta dang nhap bang user thuong co' password, khi go lenh ls no' hien ra Error: Transfer Done (but failed to open directory) thi ta tat selinux tren ftp server http://blog.danielburrowes.com/2009/06/vsftpd-transfer-done-but-failed-to-open.html. Neu sau khi tat selinux van chua duoc nua thi chmod -R 777 /var/ftp/
+
+Khi login bang user thuong vi du Spike thi duong dan se nhu sau /home/Spike/ .file rong tao ra bang lenh touch lay duoc luon.
+
+newer file-name [local-file]
+Get the file only if the modification time of the remote file is more recent that the file on the current system. If the file does not exist on the current system, the remote file is considered newer.
+
+newer /var/ftp/guest/hohoho.txt /root/hohoho.txt
+newer server_file client_file
+
+
+put # get
+get: lay file tu server ve client
+put: upload file tu client len server
+
+
+nlist /var/ftp/guest/ we.txt
+list noi dung folder /var/ftp/guest tren server roi sau do' write vao file we.txt tren may client
+
+
+newer $i 
+No' se so sanh file $i tren server voi file $i tren client, neu tren server co' mod time lon hon thi client download file server, neu tren client ko co file $i thi client download file server

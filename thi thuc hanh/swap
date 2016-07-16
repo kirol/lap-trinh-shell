@@ -1,0 +1,19 @@
+#!/bin/bash
+ssh root@192.168.1.3 ' free ' > /root/Desktop/free
+cat /root/Desktop/free | tail -n-1 > /root/Desktop/free1
+while read LINE
+do
+	name=$(echo $LINE | awk '{print $1}')
+	echo $name
+	used=$(echo $LINE | awk '{print $3}')
+	echo $used
+	total=$(echo $LINE | awk '{print $2}')
+	echo $total
+	percent=$(($used/$total*100))
+	echo -ne "[$name]\t"
+	for i in $(seq 1 $percent)
+	do
+	echo -n "#"
+	done
+	echo ""
+done < /root/Desktop/free1

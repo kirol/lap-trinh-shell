@@ -1,0 +1,88 @@
+1/Tinh % CPU,MEM dang su dung,neu vuot qua bao nhieu do thi se gui mail  
+#!/bin/sh 
+ps -eo pid,pcpu,comm,pmem | awk '{sumcpu+=$2;summem+=$4}END{printf "%d\t %d",sumcpu,summem}' > /tmp/ps 
+cpu=`cat /tmp/ps | awk '{print $1}'` 
+mem=`cat /tmp/ps | awk '{print $2}'` 
+
+if [ $cpu -gt 80 -o $mem -gt 80 ] 
+then 
+        echo -e "time:$(date)\nhe thong qua tai: \n%cpu:$cpu \n%memory:$mem" | mail -s "he thong qua tai" root 
+fi
+
+2/Tinh quota user dang su dung,neu quota lo hon 100MB thi gui mail cho user,hon 120MB thi 
+ko cho login
+#!/bin/sh 
+read -p "Nhap user can check:" user 
+size=`find / -user $user 2> /dev/null -exec stat --format %s '{}' \; | awk '{sum+=$1}END{printf "%d",sum}'` 
+size=`echo "$size/1024" | bc` 
+echo "$user co dung luong su dung la:$sizeKB" 
+if [ $size -gt 100000 -a $size -lt 120000 ] 
+then 
+echo "$user, vuot qua 100MB trong he thong" | mail -s "quota user" $user 
+echo "$user, vuot qua 100MB trong he thong" | mail -s "quota user" root 
+elif [ $size -gt 120000 ] 
+then 
+echo "$user se bi lock" 
+usermod -L $user  
+fi 
+
+
+-exec stat --format %s '{}' \;
+
+'{}' \; : la cu' phap'
+
+4/TInh tong dungluong cac file co duoi la extension.c
+#!/bin/sh 
+size=`find / -type f -iname *.c -exec stat --format %s '{}' \; | awk '{sum+=$1} END {printf "%f",sum}'` 
+size=`echo "$size/1024" | bc`   co' the thay bang size=$(($size/1024))
+num=`find / -type f -a -iname *.c | wc -l` 
+echo "co $num file trong he thong ( co duoi .c ) co dung luong la:$size KB" 
+
+
+5/Viet doan script nhap 1 tham so bat ki,xac dinh xem so do co fai so nguyen to hay ko?
+#!/bin/sh 
+a=`echo "sqrt($1)+1" | bc` 
+for i in `seq 2 $a` 
+do 
+     tam=`echo "$1 % $i" | bc` 
+     if [ $tam -eq 0 ] 
+     then 
+          echo "$1 ko phai la so nguyen to" 
+          exit 0; 
+     fi 
+done
+echo "$1 la so nguyen to"
+
+6/Tao file text sinh vien,nam sinh,que quan,chuyen nganh.Viet doan script in doan sinh vien bat 
+ki,va dem so sv co cung ten (in theo hang doc) 
+
+tao file sv 
+ho&ten:dd-mm-yyyy:Que quan:ChuyenNganh 
+
+#!/bin/sh 
+file_data='/root/shell/sv' (# thay doi duong dan den file sv) 
+read -p "Nhap ten:" name 
+error="ko tim thay user trung" 
+while read LINE 
+do 
+    echo $LINE | cut -d: -f1 | grep -i $name$ >> /dev/null && echo $LINE | awk -F: '{print "\nName:"$1"\nNgaySinh:"$2"\nQueQuan:"$3"\nChuyenNganh:"$4}' && error=" " 
+done < $file_data 
+echo $error
+
+
+
+7/Viet chuog trinh in ra cac tham so cua nguoi dung khi tao ra script
+#!/bin/bash
+for i in `seq 1 $#`
+do
+ echo $1
+ shift
+done   
+      ./bt 1 2 3 a b c
+
+
+
+
+8/ Lam bai bua bao keo
+
+9/ Lam thu bai kiem tra user lock 

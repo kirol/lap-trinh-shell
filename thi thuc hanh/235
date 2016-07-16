@@ -1,0 +1,28 @@
+#!/bin/bash
+read -p "Nhap vao so can kiem tra" a
+x=$(($a%2))
+y=$(($a%3))
+z=$(($a%5))
+if [[ $x == 0 && $y == 0 && $z = 0 ]]
+then
+	echo "$a chia het cho 2,3,5"
+fi
+if [[ $x == 0 ]]
+then
+	echo " $a chia het cho 2"
+else	
+	echo " $a khong chia het cho 2"
+fi
+if [[ $y == 0 ]]
+then
+	echo " $a chia het cho 3"
+else
+	echo "$a khong chia het cho 3"
+fi
+if [[ $z == 0 ]]
+then
+	echo "$a chia het cho 5"
+else
+	echo "$a khong chia het cho 5"
+fi
+

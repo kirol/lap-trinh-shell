@@ -1,0 +1,1 @@
+find / -type f -user Spike -exec hostname '{}' \; | grep "^.\" > filean.txt

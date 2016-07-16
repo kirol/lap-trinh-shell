@@ -1,0 +1,7 @@
+nguyen van a	19	AÀ[3~
+nguyen van b	20	A201
+nguyen van c	21	A111
+nguyen tan vy	39	A?A3
+nguyen van a	12	333
+nguyen van a	12	34
+nguyen b	12	34

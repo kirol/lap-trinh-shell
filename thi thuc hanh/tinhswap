@@ -1,0 +1,11 @@
+#!/bin/bash
+ssh root@192.168.1.4 ' free -m ' > /root/Desktop/swap.txt
+swap=`cat swap.txt | tail -n +4 | awk '{print $3}'`
+echo -e "Swap cua server : $swap MB"
+tong=`cat swap.txt | tail -n+4 | awk '{print $2}'`
+sd=$(($swap*100/$tong))
+echo "Da su dung $sd % swap"
+if [ $sd -eq 50 ]
+then
+echo "Dung luong swap qua muc quy dinh" | mail -s "SWAP!!!" root@localhost.localdomain
+fi

@@ -1,0 +1,15 @@
+To remove all blank lines, enter:
+sed '/^$/d' abc.txt > /tmp/output.file
+
+d: la delete
+
+
+To remove all whitespace (including tabs) from left to first word (remove leading), enter:
+sed 's/^[ \t]*//' abc.txt 
+
+To remove all whitespace (including tabs) from word to right (remove trailing), enter:
+sed 's/[ \t]*$//' abc.txt 
+
+s/ : Substitute command ~ replacement for pattern (^[ \t]*) on each addressed line
+^[ \t]* : Search pattern ( ^ - start of the line; [ \t]* match one or more blank spaces including tab)
+// : Replace (delete) all matched pattern

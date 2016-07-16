@@ -1,0 +1,16 @@
+#!/bin/bash
+ssh root@192.168.1.4 ' df ' > /root/Desktop/filelogserver
+cat /root/Desktop/filelogserver | tail -n +2 | while read abc
+do
+        DISK_NAME=`echo $abc |awk '{print $1}'`
+        DISK_USED=`echo $abc |awk '{print $3}'`
+        DISK_SIZE=`echo $abc |awk '{print $2}'`
+        DISK_PERCENT=`echo $abc |awk '{print $5}'|cut -d "%" -f1`
+        scale=$DISK_PERCENT
+        echo -n " Disk : $DISK_NAME     [$DISK_USED/$DISK_SIZE]         " 
+        for i in $(seq 1 $scale)
+        do
+                echo  -e "#\c"
+        done
+        echo " "
+done 

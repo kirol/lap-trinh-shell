@@ -1,0 +1,3 @@
+Input Redirection: It is usually used with a program which accepts user input from the keyboard. A legendary use of input redirection that I have come across is mailing the contents of a text file to another user.
+
+$ mail ravi < mail_contents.txt http://www.faqs.org/docs/Linux-mini/FTP.html#ss3.5

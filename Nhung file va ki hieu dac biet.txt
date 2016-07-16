@@ -1,0 +1,16 @@
+.bash_profile: ghi lenh trong day thi khi log in vao thi se thuc hien lenh do
+~/.bashrc: bai PATH
+$!: PID cua process
+$#: so bien. Vi du ./abc 4 5 thi $# la 2
+$@: lap lai. Vi du ./abc 4 5 thi $@ la 4 5
+$?=0 thanh cong, $?=1 that bai
+if (($?)); then 
+echo "That bai"
+. dai dien cho 1 ky tu
+... dai dien cho 3 ky tu
+* dai dien cho nhiu ky tu
+
+
+
+if [ $? -eq 0 ]; 
+echo "Thanh cong"

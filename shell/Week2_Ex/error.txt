@@ -1,0 +1,1 @@
+find: `/home/linux2/.gvfs': Permission denied
